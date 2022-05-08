@@ -33,5 +33,5 @@ class SaleOrderArchive(models.Model):
                     'count_order_lines': len(rec['order_line'])
                 })
 
-                # TODO: Add deletion of archived objects sale.order
-                # rec.unlink()
+                rec['state'] = 'cancel'
+                rec.unlink()
