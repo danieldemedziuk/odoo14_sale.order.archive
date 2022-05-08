@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id='sale_archive_view_form' model='ir.ui.view'>
+        <field name="name">sale.order.archive.form</field>
+        <field name="model">sale.order.archive</field>
+        <field name="arch" type="xml">
+            <form string="Sale order archive">
+                <sheet>
+                    <group col="2">
+                        <group string="General">
+                            <field name="name" string="Name"/>
+                            <field name="create_date"/>
+                            <field name="customer_id"/>
+                        </group>
+                        <group string="Details">
+                            <field name="sale_person_id"/>
+                            <field name="total_amount"/>
+                            <field name="currency_id"/>
+                            <field name="count_order_lines"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='sale_archive_view_tree' model='ir.ui.view'>
+        <field name="name">sale.order.archive.tree</field>
+        <field name="model">sale.order.archive</field>
+        <field name="arch" type="xml">
+            <tree string="Sale order archive">
+                <field name="name"/>
+                <field name="create_date"/>
+                <field name="customer_id"/>
+                <field name="sale_person_id"/>
+                <field name="total_amount"/>
+                <field name="currency_id"/>
+                <field name="count_order_lines"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='sale_archive_act' model="ir.actions.act_window">
+        <field name="name">Sale order archive</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order.archive</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="sale_order_archive_menu_id"
+            name="Archive Orders"
+            parent="sale.sale_order_menu"
+            action="sale_archive_act"
+            sequence="10"/>
+
+
+</odoo>
